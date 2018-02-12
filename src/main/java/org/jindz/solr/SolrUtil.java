@@ -70,9 +70,9 @@ public class SolrUtil {
 	 * 
 	 * @param keywords
 	 */
-	public static QueryResponse query(String keywords) throws SolrServerException, IOException {
+	public static QueryResponse query(BaseQuery art) throws SolrServerException, IOException {
 		SolrQuery query = new SolrQuery();
-		query.setQuery(keywords);
+		query.setQuery(art.toQueryString());
 		QueryResponse rsp = client.query(query);
 		return rsp;
 	}

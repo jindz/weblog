@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.apache.solr.client.solrj.beans.Field;
 
-public class Article {
+public class Article extends BaseQuery{
 	// 文章id
 	@Field
 	private String id;
@@ -71,5 +71,6 @@ public class Article {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
+	
 
 }
