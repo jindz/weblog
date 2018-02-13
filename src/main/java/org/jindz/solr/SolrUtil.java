@@ -14,7 +14,7 @@ public class SolrUtil {
 	private static SolrClient client;
 	private static String url;
 	static {
-		url = "http://127.0.01:8983/solr/articles";
+		url = "http://127.0.01:8983/solr/sc_real_time_result";
 		client = new HttpSolrClient.Builder(url).build();
 	}
 

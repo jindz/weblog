@@ -22,16 +22,20 @@ public abstract class BaseQuery {
 						getMethodName(fieldList[i].getName()));
 				Object value = method.invoke(this);
 				if (value != null && !StringUtils.isEmpty(String.valueOf(value))) {
-					sub.append(fieldList[i].getName()).append(":").append(method.invoke(this));
-					if (i < fieldList.length - 2) {
+					if(i>0 && !StringUtils.isEmpty(sub.toString())){
 						sub.append(" AND ");
 					}
+					sub.append(fieldList[i].getName()).append(":").append(method.invoke(this));
 				}
 
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		if(StringUtils.isEmpty(sub.toString())){
+			sub.append("*:*");
+		}
+		System.out.println(sub.toString());
 		return sub.toString();
 	}
 
